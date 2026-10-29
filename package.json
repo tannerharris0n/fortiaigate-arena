@@ -1,0 +1,26 @@
+{
+  "name": "fortiaigate-arena",
+  "version": "1.0.0",
+  "description": "FortiAIGate Arena: an agentic AI red-team game. Break enterprise AI agents, then watch FortiAIGate stop the same attack.",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "concurrently -k \"npm:dev:server\" \"npm:dev:client\"",
+    "dev:server": "node --watch server/index.js",
+    "dev:client": "npm --prefix client run dev",
+    "build": "npm --prefix client install && npm --prefix client run build",
+    "start": "node server/index.js",
+    "test": "node --test server/test/*.test.js",
+    "postinstall": "npm --prefix client install"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "nanoid": "^5.0.9"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

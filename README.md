@@ -10,6 +10,39 @@ It is a ground-up reimplementation of the mechanics in Lakera's *Gandalf: Agent 
 
 ---
 
+## What it looks like
+
+**Pick a target.** Twelve agents, the defense ladder, and progress dots per level.
+
+![Home](docs/screenshots/01-home.png)
+
+**Guard off: the attack lands.** Nexus Chat sends an all-staff email as the CEO on the first try. Score 100.
+
+![Unguarded attack](docs/screenshots/02-attack-unguarded.png)
+
+**Guard on: same payload, same model, blocked.** The tool call is struck through in the victim's view and the panel says what the attack would have scored without the gateway.
+
+![Blocked by FortiAIGate](docs/screenshots/03-attack-fortiaigate-blocked.png)
+
+**The verdict panel.** Every stage in the pipeline, the policy that fired, the signature ids, and the matched text. This is what you point at on stage.
+
+![Verdict panel](docs/screenshots/04-verdict-panel.png)
+
+**Indirect injection surfaces.** The editor is dressed as whatever the agent actually reads: a travel site, a PDF, a rules file, a memory store, an MCP tool definition, a change ticket. Signature hits preview live while you type.
+
+![Indirect injection surface](docs/screenshots/05-indirect-injection-surface.png)
+
+**Leaderboard and facilitator console.** Event-scoped ranking for the big screen; a live feed, block rate, and attack export for whoever is running the room.
+
+![Leaderboard](docs/screenshots/06-leaderboard.png)
+![Facilitator console](docs/screenshots/07-facilitator-console.png)
+
+**Phones work.** Attendees play from the QR code on your first slide.
+
+<img src="docs/screenshots/08-mobile.png" width="360" alt="Mobile view" />
+
+---
+
 ## The twelve targets
 
 | # | Target | Vector | Task type | Objective |

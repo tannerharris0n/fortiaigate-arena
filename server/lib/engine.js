@@ -110,7 +110,11 @@ export async function runAttack({ scenarioId, level = 1, attack, guard = false, 
     if (blockedAt) {
       // Enforce: strip the offending output / tool calls.
       if (out.action === 'block') text = '[FortiAIGate] Response withheld: policy AI-Data-Leak-Prevention matched. The event has been logged.';
-      toolCalls = toolCalls.filter((_, i) => toolVerdicts[i].action === 'allow');
+      const kept = toolCalls.filter((_, i) => toolVerdicts[i].action === 'allow');
+      if (kept.length !== toolCalls.length && out.action !== 'block') {
+        text = `[FortiAIGate] ${toolCalls.length - kept.length} tool call${toolCalls.length - kept.length === 1 ? '' : 's'} withheld: policy AI-Agent-Tool-Control matched. The action was not executed and the event has been logged.`;
+      }
+      toolCalls = kept;
       if (ctx.json && out.action === 'block') json = {};
     }
   }
